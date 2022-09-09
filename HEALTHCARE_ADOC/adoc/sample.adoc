@@ -105,11 +105,11 @@ DON'T use headlines in these include files, leave the headline placeholders in y
 
 === Inclusion of images
 
- image::sample.png[]
- image::sample.svg[]
+ image::img1.png[]
+ image::img1.svg[]
 
-image::sample.png[]
-image::sample.svg[]
+image::img1.png[]
+image::img1.svg[]
 
 Images needs to be in the subdirectory ./images if you would like to use DAPS relative to your document. You can also add metadata, like titles, scaling, etc.
 

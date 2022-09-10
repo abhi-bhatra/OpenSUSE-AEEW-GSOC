@@ -1,6 +1,3 @@
-:docinfo:
-include::./common_docinfo_vars.adoc[]
-
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 // General comments
 // Keep in mind that this is a "getting started" guide and the
@@ -36,6 +33,8 @@ include::./common_docinfo_vars.adoc[]
 :title: Analytics Edge Ecosystem Workloads - Google Summer of Code
 :productname: Analytics Edge Ecosystem Workloads
 :partnerproductname: Google Summer of Code
+:imagesdir: ./media
+
 //:revdate: Month dd, YYYY
 //:revnumber: YYYYmmdd
 //:toc2:
@@ -62,6 +61,9 @@ include::./common_docinfo_vars.adoc[]
 
 
 == Introduction
+
+image::before.png[Test Image, scaledwidth="85%", align="center"]
+
 === Motivation
 Cancer is world's second-leading cause of death in the world. It results in development of adnormal cells that divide uncontrollably and have the ability to infiltrate and destroy normal body tissue. Eventually, survival rates are improving and all thanks to cancer screening, treatment and prevention. 
 
@@ -89,7 +91,7 @@ Using AI in imaging can tell the radiologist about the suspicious scans that nee
 
 == Audience
 
-The target audience for pass:[<u>Machine Learning based Cancer Prediciton System</u>] is the group of people who have been determined to be at risk for the disease. This software needs to be installed on Edge devices at the Hospital premises, where a lab technician, radiologist and an oncologist can closely work with the application. 
+The target audience for [.underline]#Machine Learning based Cancer Prediciton System# is the group of people who have been determined to be at risk for the disease. This software needs to be installed on Edge devices at the Hospital premises, where a lab technician, radiologist and an oncologist can closely work with the application. 
 
 == Technical overview
 === Overview
@@ -97,7 +99,7 @@ Machine Learning is a branch of Artificial Intelligence that implements varietie
 
 As a part of GSoC, We have built a Machine Learning Based **Cancer Predicition System**. The fundamental goal of the system is the prediciton of Cancer Suspectibility (also known as risk assessment), in this case, we are trying to predict the likelihood of developing a cancer prior to occurence of the disease. 
 
-This Model uses CT Scanned Images in the form of DICOM (Digital Imaging and Communications in Medicine). Whole application is deployed on Microservice based architecture and is divided into four interfaces: **pass:[<u>Lab Technician Dashboard</u>]** , **pass:[<u>Doctor Dashboard</u>]**, **pass:[<u>Rancher Dashboard</u>]** and **pass:[<u>ML Pipeline Dashboard</u>]**. They are as follows:
+This Model uses CT Scanned Images in the form of DICOM (Digital Imaging and Communications in Medicine). Whole application is deployed on Microservice based architecture and is divided into four interfaces: **[.underline]#Lab Technician Dashboard#** , **[.underline]#Doctor Dashboard#**, **[.underline]#Rancher Dashboard#** and **[.underline]#ML Pipeline Dashboard#**. They are as follows:
 
 - Lab Technician's Application is responsible for getting DICOM image as input. The person could alter the information such as Contrast, Brightness and Angle of rotation of the DICOM image. They can also read all the information associated with the DICOM image (Modality: CT Scan).
 - Doctor Dashboard is more simpler dashboard designed for the doctors to examine the report send by the Lab Technician. Application will also send it's prediction over the chosen image. If doctor will not be satisfied with the response, they can send the image for the retraining with the correct label attached to it.
@@ -368,9 +370,9 @@ The Kubeflow project is designed for making deployments of machine learning (ML)
 
 We can install various components of Kubeflow such as:
 
-1. pass:[<u>Kubeflow Central Dashboard</u>]: Central dashboard provides quick access to the Kubeflow components deployed in your cluster.
-2. pass:[<u>Kubeflow Notebooks</u>]: Kubeflow includes services to create and manage interactive Jupyter notebooks.
-3. pass:[<u>Kubeflow Pipelines</u>]: Kubeflow Pipelines is a platform for building and deploying portable, scalable machine learning (ML) workflows based on Docker containers.
+1. [.underline]#Kubeflow Central Dashboard#: Central dashboard provides quick access to the Kubeflow components deployed in your cluster.
+2. [.underline]#Kubeflow Notebooks#: Kubeflow includes services to create and manage interactive Jupyter notebooks.
+3. [.underline]#Kubeflow Pipelines#: Kubeflow Pipelines is a platform for building and deploying portable, scalable machine learning (ML) workflows based on Docker containers.
 
 https://www.kubeflow.org/docs/components/[Learn more about the Kubeflow components and there installation].
 
@@ -1128,7 +1130,7 @@ Run the application using: `kubectl apply -k lab-tech/`
 
 == Demonstration
 
-==== Workflow
+=== Workflow
 This application is a combination of various tools and technologies embedded together on a same platform. Here, I will demonstrate you DIY guide to the application:
 
 - Clone the official GitHub repository:
@@ -1159,7 +1161,7 @@ kubectl apply -f kubeflow-istio.yaml
 
 ```
 
-==== Application Walkthrough
+=== Application Walkthrough
 
 
 == Summary

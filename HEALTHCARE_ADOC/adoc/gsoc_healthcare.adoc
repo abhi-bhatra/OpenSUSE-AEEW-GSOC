@@ -411,7 +411,7 @@ pod/cache-server-6cddbbc849-bnd6n                      1/1     Running          
 
 Now you can access the Kubeflow Pipeline UI using port-forwarding: `kubectl port-forward -n kubeflow svc/ml-pipeline-ui 8080:80`
 
-We can access the portal using `http://localhost:8080` or we can also access on our cluster IP using `http://{VM_IP}:8080`
+We can access the portal using `http://localhost:8080` or we can also access on our cluster IP using `http://VM_IP:8080`
 
 === Application Setup
 

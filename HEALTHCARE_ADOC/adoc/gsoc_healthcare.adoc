@@ -33,7 +33,6 @@
 :title: Analytics Edge Ecosystem Workloads - Google Summer of Code
 :productname: Analytics Edge Ecosystem Workloads
 :partnerproductname: Google Summer of Code
-:imagesdir: ./media
 
 //:revdate: Month dd, YYYY
 //:revnumber: YYYYmmdd
@@ -61,8 +60,6 @@
 
 
 == Introduction
-
-image::before.png[Test Image, scaledwidth="85%", align="center"]
 
 === Motivation
 Cancer is world's second-leading cause of death in the world. It results in development of adnormal cells that divide uncontrollably and have the ability to infiltrate and destroy normal body tissue. Eventually, survival rates are improving and all thanks to cancer screening, treatment and prevention. 

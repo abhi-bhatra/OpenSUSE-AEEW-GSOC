@@ -333,8 +333,8 @@ helm install cert-manager jetstack/cert-manager \
   --version v1.5.1
 ```
 
-e. Verify the Installation: `kubectl get pods --namespace cert-manager`
-f. Install Rancher: 
+a. Verify the Installation: `kubectl get pods --namespace cert-manager`
+b. Install Rancher: 
 ----
 helm install rancher rancher-<CHART_REPO>/rancher \
   --namespace cattle-system \
@@ -344,7 +344,7 @@ helm install rancher rancher-<CHART_REPO>/rancher \
   # --version 2.3.6 can be used
 ----
 
-g. Wait for Rancher to be rolled out: `kubectl -n cattle-system rollout status deploy/rancher`
+a. Wait for Rancher to be rolled out: `kubectl -n cattle-system rollout status deploy/rancher`
 
 To know more installation of Rancher, visit the https://docs.ranchermanager.rancher.io/pages-for-subheaders/install-upgrade-on-a-kubernetes-cluster[official Rancher Installation Guide]. 
 

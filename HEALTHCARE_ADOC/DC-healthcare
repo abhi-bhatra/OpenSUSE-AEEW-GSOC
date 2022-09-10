@@ -17,8 +17,8 @@ PROFROLE="sbp"
 MAIN="gsoc_healthcare.adoc"
 
 # Format Type
-ADOC_TYPE="article"
-#ADOC_TYPE="book"
+# ADOC_TYPE="article"
+ADOC_TYPE="book"
 
 # Stylesheet Root
 STYLEROOT="/usr/share/xml/docbook/stylesheet/suse2021-ns"

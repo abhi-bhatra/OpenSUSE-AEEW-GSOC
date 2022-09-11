@@ -106,7 +106,9 @@ This document is intended for Hospital Administrators, Radiologits, Doctors, Dat
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 
-As a part of GSoC, We have built a Machine Learning Based [.underline]#Cancer Predicition System#. The fundamental goal of the system is the prediciton of Cancer Suspectibility (also known as risk assessment), in this case, we are trying to predict the likelihood of developing a cancer prior to occurence of the disease. 
+As a part of GSoC, We have built a Machine Learning Based [.underline]#Cancer Predicition System#. The fundamental goal of the system is the prediciton of Cancer Suspectibility (also known as risk assessment), in this case, we are trying to predict the likelihood of developing a cancer prior to occurence of the disease.
+
+image::architecture.png[Healthcare Architecture, align="center"]
 
 The Cancer Prediction System uses CT Scanned Images in the form of https://www.dicomstandard.org/[DICOM (Digital Imaging and Communications in Medicine)]. The system is designed to be deployed as a Microservice based architecture and is divided into four interfaces:
 
@@ -114,7 +116,6 @@ The Cancer Prediction System uses CT Scanned Images in the form of https://www.d
 - Doctor Dashboard
 - Rancher Dashboard
 - ML Pipeline Dashboard
-
 
 
 === Components and tools
@@ -162,6 +163,14 @@ In general, the process is as follows:
 
 This guide assumes that you have access to an existing Kubernetes cluster managed by https://rancher.com/docs/rancher/v2.6/en/overview/[SUSE Rancher].
 A good place to start getting more details is the https://medium.com/@abhinavsharma332/deploy-single-node-cluster-using-k3s-or-rke-6fc9e6a38b66[Deploying cluster Using Rancher Kubernetes Engine or K3S] blog.
+
+=== K3S Architecture
+
+image::rancherk3s.png[K3S Architecture, align="center", scaledwidth=70%]
+
+=== RKE Architecture
+
+image::rke.png[RKE Architecture, align="center"]
  
 
 [TIP]
@@ -173,6 +182,8 @@ Be sure docker is installed, as RKE (_Rancher Kubernetes Engine_) clusters need 
 == Install Rancher
 
 There are various ways to install the Rancher on the existing cluster. https://docs.ranchermanager.rancher.io/v2.5/pages-for-subheaders/installation-and-upgrade[This section provides an overview of installing options of Rancher]. 
+
+image::rancher_portal.png[Rancher Portal, align="center"]
 
 [TIP]
 ====
@@ -187,6 +198,8 @@ Before proceeding, review the concepts of persistent volumes, persistent volume 
 Longhorn provides a storage solution that is easy to use, self-healing, and highly available. Longhorn is designed to be deployed on a Kubernetes cluster and provides persistent storage for stateful applications. There are 3 ways to installing Longhorn to Clusters:
 
 . https://longhorn.io/docs/1.3.1/deploy/install/install-with-rancher/[Using the Apps and Marketplace in Rancher UI]
++
+image::longhorn_marketplace.png[Longhorn, scaledwidth=80%]
 
 . https://longhorn.io/docs/1.3.1/deploy/install/install-with-kubectl/[Using the kubectl manifests files]
 +
@@ -203,6 +216,10 @@ helm repo add longhorn https://charts.longhorn.io
 helm repo update
 helm install longhorn/longhorn -name longhorn -namespace longhorn-system
 ----
+
+. After successfull installation, you can see the Longhorn UI in the Rancher Dashboard.
++
+image::longhorn_dashboard.png[Longhorn Dashboard, scaledwidth=80%]
 
 [TIP]
 ====
@@ -248,6 +265,10 @@ spec:
       storage: 1Gi
   storageClassName: longhorn
 ----
+
+. You can visualize the Persistent Volumes in the Rancher Dashboard.
++
+image::pvc.png[PVC, scaledwidth=80%]
 
 
 == Install Kubeflow Pipelines
@@ -297,7 +318,17 @@ pod/cache-server-6cddbbc849-bnd6n                      1/1     Running          
 kubectl port-forward -n kubeflow svc/ml-pipeline-ui 8080:80
 ----
 
+. Click on the pipeline port from the Rancher portal and you will be redirected to the Kubeflow Pipelines UI dashboard.
++
+image::select_ml_port.png[Kubeflow Pipelines Port Selection]
+
+. You can see the Kubeflow Pipelines UI dashboard.
++
+image::kubeflow.png[Kubeflow Pipelines Dashboard]
+
 == Download the Data
+
+image::dataset.jpg[Dataset Kaggle]
 
 The Cancer Prediction System uses the https://www.kaggle.com/datasets/kmader/siim-medical-images[CT Medical Images ~ cancer imaging archive with contrast and patient age] dataset from Kaggle.
 
@@ -422,6 +453,8 @@ Complete Cancer Prediction System is built on top of Flask. It has two separate 
 
 === Deploy Lab Technician Interface
 
+image::labtech.png[Lab Technician Interface, align="center"]
+
 Lab Technician Interface is responsible for getting DICOM image as input. The person (_Radiologits_, _Lab Technician_, _Physicians_) could alter the information such as Contrast, Brightness and Angle of rotation of the DICOM image. They can also read all the information associated with the DICOM image (Modality: CT Scan). 
 
 Lab Technician Interface have a streamlined installation process. It can be easily installed through the Manifests.
@@ -446,6 +479,8 @@ kubectl apply -k .
 
 === Deploy Doctor Dashboard Interface
 
+image::doctor.png[Doctor Dashboard Interface, align="center"]
+
 Doctor Dashboard is designed for the doctors to examine the report send by the Lab Technician. It receives the report of a patient and displays it to the user, predicting whether or not person is suffering from cacner. If doctor will not be satisfied with the response, they can send the image for the retraining with the correct label attached to it.
 
 Just like Lab Technician Interface, doctor's dashboard Interface installation process is streamline and can be installed through manifests.
@@ -469,6 +504,8 @@ kubectl apply -k .
 == Machine Learning Model
 
 In the project, Machine Learning is one of the major component used for predicition. We are using Convolutional Neural Network (CNN). It is a deep learning method and has achieved better results in detecting and segmenting specific objects in images in the last decade than conventional models such as regression, support vector machines or artificial neural networks.
+
+image::model_kflow.png[ML Model Architecture, align="center"]
 
 === Body-part Classification Model
 
@@ -499,12 +536,20 @@ Kubeflow Pipelines is a platform for building and deploying portable, scalable m
 Retraining the Machine Learning Model is an automated process. We have used Kubeflow Pipelines to automate the process of retraining the model. It comprises of the following steps:
 
 . **Data Collection**: The data is collected from the dataset-prediction folder. The data is split into Train, Test and Validation sets. The labels are attached to the images. The data is then stored in the `dataset` folder.
++
+image::download_data.png[Collecting Data, scale=50%]
 
 . **Data Preprocessing**: The data is preprocessed to remove the noise from the images. The images are converted into grayscale images. The images are then resized to 512x512. The data is then stored in the `preprocessed` folder.
++
+image::preprocess_data.png[Preprocessing Data, scale=50%]
 
 . **Trained Model**: The model is trained on the preprocessed data. The model is saved in the `trained-model` folder.
++
+image::retrain.png[Retraining Model, scale=50%]
 
 . **Prediction**: The model is then converted into a prediction model. The prediction model is saved in the `prediction-model` folder.
++
+image::predict_data.png[Prediction Model, scale=50%]
 
 Complete Reference to the Retraining Model can be found at: https://github.com/abhi-bhatra/ct_image_scanning/blob/UI_base/ML_MODEL/kflow_model.py
 
@@ -631,10 +676,9 @@ spec:
 
 == Demonstration
 
-Below is a demonstration of the Cancer Prediction System. The demonstration is divided into two parts:
+Below is a demonstration of the Cancer Prediction System.
 
-. Demonstration of the Cancer Prediction System as a whole.
-. Demonstration of the individual components of the Cancer Prediction System.
+video::JGEDEXf-qm8[youtube]
 
 == Summary
 

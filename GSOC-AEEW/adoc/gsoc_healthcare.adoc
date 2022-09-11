@@ -537,19 +537,19 @@ Retraining the Machine Learning Model is an automated process. We have used Kube
 
 . **Data Collection**: The data is collected from the dataset-prediction folder. The data is split into Train, Test and Validation sets. The labels are attached to the images. The data is then stored in the `dataset` folder.
 +
-image::download_data.png[Collecting Data, scale=50%]
+image::download_data.png[Collecting Data, scaledwidth=50%]
 
 . **Data Preprocessing**: The data is preprocessed to remove the noise from the images. The images are converted into grayscale images. The images are then resized to 512x512. The data is then stored in the `preprocessed` folder.
 +
-image::preprocess_data.png[Preprocessing Data, scale=50%]
+image::preprocess_data.png[Preprocessing Data, scaledwidth=50%]
 
 . **Trained Model**: The model is trained on the preprocessed data. The model is saved in the `trained-model` folder.
 +
-image::retrain.png[Retraining Model, scale=50%]
+image::retrain.png[Retraining Model, scaledwidth=50%]
 
 . **Prediction**: The model is then converted into a prediction model. The prediction model is saved in the `prediction-model` folder.
 +
-image::predict_data.png[Prediction Model, scale=50%]
+image::predict_data.png[Prediction Model, scaledwidth=50%]
 
 Complete Reference to the Retraining Model can be found at: https://github.com/abhi-bhatra/ct_image_scanning/blob/UI_base/ML_MODEL/kflow_model.py
 

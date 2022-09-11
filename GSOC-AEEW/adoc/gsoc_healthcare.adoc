@@ -533,7 +533,7 @@ image::trained_grid.png[Model Architecture]
 
 . **Training the model**: We are training the model for 200 epochs. We are using 32 as the batch size.
 +
-image::predict_cancer.png[Prediction]
+image::prediction_cancer.png[Prediction]
 
 === Retraining Model
 

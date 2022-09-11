@@ -1,0 +1,88 @@
+:title: Analytics Edge Ecosystem Workloads - Google Summer of Code
+:productname: Analytics Edge Ecosystem Workloads - Healthcare
+:partnerproductname: Google Summer of Code
+:author1: Abhinav Sharma, GSoC Contributor, SUSE Rancher
+
+== Introduction
+
+image::gsoc_intro_banner.png[Google Summer of Code 2022]
+
+This static webpage to submit the Google Summer of Code work for final evaluation. It is intended to point out to the Application documentation and walkthroughs for the Analytics Edge Ecosystem Workloads - Healthcare project. The project is a part of the Google Summer of Code 2022 program.
+
+== Project Description
+
+This Document will point out to the detailed approach undertaken to accomplish this project. The project is developed under mentorship of Bryan Gartner, Ann Davis, Brian Fromme and the SUSE organization.
+
+This guide introduces the basic concepts and steps to install, configure, and use the Cancer Prediction System in a SUSE Rancher Kubernetes environment. It uses Convolutional Neural Nets (CNNs) to automatically recognize the complex patterns in imaging data, providing quantitative as well as qualitative assessments of data within a short period of time.
+
+== Project Architecture
+
+image::architecture.png[Architecture]
+
+== Project Walkthrough
+
+Visit this link to view the project walkthrough published on https://youtu.be/Hy00J1eoQ1c[Youtube].
+
+video::Hy00J1eoQ1c[Youtube]
+
+== Project Repository
+
+Project source code is available on the official GitHub repository https://github.com/abhi-bhatra/ct_image_scanning[OpenSUSE Rancher (Google Summer of Code 2022)- Healthcare].
+
+== Project Documentation
+
+Documentation is published on official SUSE technical reference documentation website. You can also read the How-To start Guide available on the project repository. Visit this link to view the documentation published on https://github.com/abhi-bhatra/ct_image_scanning/blob/master/README.md#run-the-application[GitHub at Getting Started with Cancer Prediction System on your cluster].
+
+[NOTE]
+====
+At the time of creation of the documentation, official documentation is under review by SUSE Team for grammatical and syntactical errors. Soon, it will be available on the official website. Hence, you can see the draft document of the project work here.
+====
+
+== Other Documentation Links
+
+* https://www.linkedin.com/pulse/unite-clusters-rancher-part-1-gso-abhinav-sharma-he-him-/[Unite Clusters with Rancher]
+
+* https://medium.com/@abhinavsharma332/deploy-single-node-cluster-using-k3s-or-rke-6fc9e6a38b66[Deploy Single Node Cluster using K3s or RKE]
+
+* https://medium.com/@abhinavsharma332/deploying-wordpress-over-rancher-cb9539b1d7da[Getting Started with Sample workload over Rancher]
+
+* https://medium.com/@abhinavsharma332/empowering-machine-learning-applications-on-rancher-f4e368a9009[Empowering Machine Learning Application on Rancher]
+
+* https://medium.com/@abhinavsharma332/orchestrate-machine-learning-model-with-kubeflow-11945e7801b5[Orchestrate Machine Learning Model with Kubeflow]
+
+== Project License
+
+Project is licensed under the Apache License, Version 2.0. A copy of the license is available on the https://github.com/abhi-bhatra/ct_image_scanning/blob/master/LICENSE.md[official GitHub repository].
+
+== Project Contact
+
+For any queries, please contact the author at the Discussions section of the official GitHub repository.
+
+https://github.com/abhi-bhatra/ct_image_scanning/discussions
+
+== Project Acknowledgements
+
+This project is a part of the Google Summer of Code 2022 program. The project is developed under mentorship of https://github.com/bwgartner[Bryan Gartner], Ann Davis, Brian Fromme and the SUSE organization.
+
+== Project References
+
+* https://www.suse.com/products/rancher/[SUSE Rancher]
+* https://documentation.suse.com/trd/kubernetes/[SUSE Technical Reference Documentation: Kubernetes]
+* https://www.suse.com/c/preparing-for-the-next-wave-of-transformation/[Preparing for the next wave of transformation]
+
+== Project Disclaimer
+
+This project is a part of the Google Summer of Code 2022 program. The project is developed under mentorship of Bryan Gartner, Ann Davis, Brian Fromme and the SUSE organization. The project is not an official SUSE product and is not supported by SUSE. The project is licensed under the Apache License, Version 2.0. A copy of the license is available on the official GitHub repository. For any queries, please contact the author at the Discussions section of the official GitHub repository.
+
+== Project Author
+
+* Name: Abhinav Sharma
+* Location: India
+* LinkedIn: https://www.linkedin.com/in/abhinavsharma0/
+* GitHub: https://github.com/abhi-bhatra
+* Twitter: https://twitter.com/the_bhatra 
+* Title: Google Summer of Code Contributor, SUSE Rancher
+
+== Future Reference
+
+https://github.com/abhi-bhatra/ct_image_scanning/issues

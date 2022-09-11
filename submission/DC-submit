@@ -16,7 +16,7 @@ PROFROLE="sbp"
 ##
 
 # Main Document 
-MAIN="submit.adoc"
+MAIN="gsoc_healthcare.adoc"
 
 # Format Type
 ADOC_TYPE="article"

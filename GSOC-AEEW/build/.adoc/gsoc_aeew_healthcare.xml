@@ -34,6 +34,14 @@
 <section xml:id="id-technical-overview">
 <title>Technical overview</title>
 <simpara>As a part of GSoC, We have built a Machine Learning Based <phrase role="underline">Cancer Predicition System</phrase>. The fundamental goal of the system is the prediciton of Cancer Suspectibility (also known as risk assessment), in this case, we are trying to predict the likelihood of developing a cancer prior to occurence of the disease.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="architecture.png" align="center"/>
+</imageobject>
+<textobject><phrase>Healthcare Architecture</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <simpara>The Cancer Prediction System uses CT Scanned Images in the form of <link xl:href="https://www.dicomstandard.org/">DICOM (Digital Imaging and Communications in Medicine)</link>. The system is designed to be deployed as a Microservice based architecture and is divided into four interfaces:</simpara>
 <itemizedlist>
 <listitem>
@@ -124,13 +132,43 @@ In general, the process is as follows:</simpara>
 <title>Prerequisites</title>
 <simpara>This guide assumes that you have access to an existing Kubernetes cluster managed by <link xl:href="https://rancher.com/docs/rancher/v2.6/en/overview/">SUSE Rancher</link>.
 A good place to start getting more details is the <link xl:href="https://medium.com/@abhinavsharma332/deploy-single-node-cluster-using-k3s-or-rke-6fc9e6a38b66">Deploying cluster Using Rancher Kubernetes Engine or K3S</link> blog.</simpara>
+<section xml:id="id-k3s-architecture">
+<title>K3S Architecture</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="rancherk3s.png" width="70%" align="center"/>
+</imageobject>
+<textobject><phrase>K3S Architecture</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
+<section xml:id="id-rke-architecture">
+<title>RKE Architecture</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="rke.png" align="center"/>
+</imageobject>
+<textobject><phrase>RKE Architecture</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <tip>
 <simpara>Be sure docker is installed, as RKE (<emphasis>Rancher Kubernetes Engine</emphasis>) clusters need Docker as a prerequisite. <link xl:href="https://www.docker.com/get-started/">Visit Docker website for more information</link>.</simpara>
 </tip>
 </section>
+</section>
 <section xml:id="id-install-rancher">
 <title>Install Rancher</title>
 <simpara>There are various ways to install the Rancher on the existing cluster. <link xl:href="https://docs.ranchermanager.rancher.io/v2.5/pages-for-subheaders/installation-and-upgrade">This section provides an overview of installing options of Rancher</link>.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="rancher_portal.png" align="center"/>
+</imageobject>
+<textobject><phrase>Rancher Portal</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <tip>
 <simpara>For this guide, we will be using the <link xl:href="https://docs.ranchermanager.rancher.io/v2.5/pages-for-subheaders/install-upgrade-on-a-kubernetes-cluster">High-availability Kubernetes Install with the Helm CLI</link> to install Rancher on top of the cluster.</simpara>
 </tip>
@@ -142,6 +180,14 @@ A good place to start getting more details is the <link xl:href="https://medium.
 <orderedlist numeration="arabic">
 <listitem>
 <simpara><link xl:href="https://longhorn.io/docs/1.3.1/deploy/install/install-with-rancher/">Using the Apps and Marketplace in Rancher UI</link></simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="longhorn_marketplace.png" width="80%"/>
+</imageobject>
+<textobject><phrase>Longhorn</phrase></textobject>
+</mediaobject>
+</informalfigure>
 </listitem>
 <listitem>
 <simpara><link xl:href="https://longhorn.io/docs/1.3.1/deploy/install/install-with-kubectl/">Using the kubectl manifests files</link></simpara>
@@ -152,6 +198,17 @@ A good place to start getting more details is the <link xl:href="https://medium.
 <programlisting language="bash" linenumbering="unnumbered">helm repo add longhorn https://charts.longhorn.io
 helm repo update
 helm install longhorn/longhorn -name longhorn -namespace longhorn-system</programlisting>
+</listitem>
+<listitem>
+<simpara>After successfull installation, you can see the Longhorn UI in the Rancher Dashboard.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="longhorn_dashboard.png" width="80%"/>
+</imageobject>
+<textobject><phrase>Longhorn Dashboard</phrase></textobject>
+</mediaobject>
+</informalfigure>
 </listitem>
 </orderedlist>
 <tip>
@@ -191,6 +248,17 @@ spec:
       storage: 1Gi
   storageClassName: longhorn</programlisting>
 </listitem>
+<listitem>
+<simpara>You can visualize the Persistent Volumes in the Rancher Dashboard.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="pvc.png" width="80%"/>
+</imageobject>
+<textobject><phrase>PVC</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</listitem>
 </orderedlist>
 </section>
 </section>
@@ -229,10 +297,40 @@ pod/cache-server-6cddbbc849-bnd6n                      1/1     Running          
 <simpara>To access the Kubeflow Pipelines UI, you can use the following command:</simpara>
 <programlisting language="bash" linenumbering="unnumbered">kubectl port-forward -n kubeflow svc/ml-pipeline-ui 8080:80</programlisting>
 </listitem>
+<listitem>
+<simpara>Click on the pipeline port from the Rancher portal and you will be redirected to the Kubeflow Pipelines UI dashboard.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="select_ml_port.png"/>
+</imageobject>
+<textobject><phrase>Kubeflow Pipelines Port Selection</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</listitem>
+<listitem>
+<simpara>You can see the Kubeflow Pipelines UI dashboard.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kubeflow.png"/>
+</imageobject>
+<textobject><phrase>Kubeflow Pipelines Dashboard</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</listitem>
 </orderedlist>
 </section>
 <section xml:id="id-download-the-data">
 <title>Download the Data</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="dataset.jpg"/>
+</imageobject>
+<textobject><phrase>Dataset Kaggle</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <simpara>The Cancer Prediction System uses the <link xl:href="https://www.kaggle.com/datasets/kmader/siim-medical-images">CT Medical Images ~ cancer imaging archive with contrast and patient age</link> dataset from Kaggle.</simpara>
 <simpara>The dataset is designed to allow for different methods to be tested for examining the trends in CT image data associated with using contrast and patient age. The basic idea is to identify image textures, statistical patterns and features correlating strongly with these traits and possibly build simple tools for automatically classifying these images when they have been misclassified (or finding outliers which could be suspicious cases, bad measurements, or poorly calibrated machines).</simpara>
 <simpara>Cancer prediction system dataset directory system:</simpara>
@@ -345,6 +443,14 @@ spec:
       -- upload.html</programlisting>
 <section xml:id="id-deploy-lab-technician-interface">
 <title>Deploy Lab Technician Interface</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="labtech.png" align="center"/>
+</imageobject>
+<textobject><phrase>Lab Technician Interface</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <simpara>Lab Technician Interface is responsible for getting DICOM image as input. The person (<emphasis>Radiologits</emphasis>, <emphasis>Lab Technician</emphasis>, <emphasis>Physicians</emphasis>) could alter the information such as Contrast, Brightness and Angle of rotation of the DICOM image. They can also read all the information associated with the DICOM image (Modality: CT Scan).</simpara>
 <simpara>Lab Technician Interface have a streamlined installation process. It can be easily installed through the Manifests.</simpara>
 <orderedlist numeration="arabic">
@@ -366,6 +472,14 @@ spec:
 </section>
 <section xml:id="id-deploy-doctor-dashboard-interface">
 <title>Deploy Doctor Dashboard Interface</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="doctor.png" align="center"/>
+</imageobject>
+<textobject><phrase>Doctor Dashboard Interface</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <simpara>Doctor Dashboard is designed for the doctors to examine the report send by the Lab Technician. It receives the report of a patient and displays it to the user, predicting whether or not person is suffering from cacner. If doctor will not be satisfied with the response, they can send the image for the retraining with the correct label attached to it.</simpara>
 <simpara>Just like Lab Technician Interface, doctor&#8217;s dashboard Interface installation process is streamline and can be installed through manifests.</simpara>
 <orderedlist numeration="arabic">
@@ -386,6 +500,14 @@ spec:
 <section xml:id="id-machine-learning-model">
 <title>Machine Learning Model</title>
 <simpara>In the project, Machine Learning is one of the major component used for predicition. We are using Convolutional Neural Network (CNN). It is a deep learning method and has achieved better results in detecting and segmenting specific objects in images in the last decade than conventional models such as regression, support vector machines or artificial neural networks.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="model_kflow.png" align="center"/>
+</imageobject>
+<textobject><phrase>ML Model Architecture</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <section xml:id="id-body-part-classification-model">
 <title>Body-part Classification Model</title>
 <simpara>Classification models are a subset of supervised machine learning. A classification model reads some input and generates an output that classifies the input into some category. In our case, model is taking CT-Scan and X-Ray images as input, and images are labelled. The model is a Supervised Learning technique that is used to identify the category of new observations on the basis of training data.</simpara>
@@ -418,15 +540,47 @@ spec:
 <orderedlist numeration="arabic">
 <listitem>
 <simpara><emphasis role="strong">Data Collection</emphasis>: The data is collected from the dataset-prediction folder. The data is split into Train, Test and Validation sets. The labels are attached to the images. The data is then stored in the <literal>dataset</literal> folder.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="download_data.png" width="50%"/>
+</imageobject>
+<textobject><phrase>Collecting Data</phrase></textobject>
+</mediaobject>
+</informalfigure>
 </listitem>
 <listitem>
 <simpara><emphasis role="strong">Data Preprocessing</emphasis>: The data is preprocessed to remove the noise from the images. The images are converted into grayscale images. The images are then resized to 512x512. The data is then stored in the <literal>preprocessed</literal> folder.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="preprocess_data.png" width="50%"/>
+</imageobject>
+<textobject><phrase>Preprocessing Data</phrase></textobject>
+</mediaobject>
+</informalfigure>
 </listitem>
 <listitem>
 <simpara><emphasis role="strong">Trained Model</emphasis>: The model is trained on the preprocessed data. The model is saved in the <literal>trained-model</literal> folder.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="retrain.png" width="50%"/>
+</imageobject>
+<textobject><phrase>Retraining Model</phrase></textobject>
+</mediaobject>
+</informalfigure>
 </listitem>
 <listitem>
 <simpara><emphasis role="strong">Prediction</emphasis>: The model is then converted into a prediction model. The prediction model is saved in the <literal>prediction-model</literal> folder.</simpara>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="predict_data.png" width="50%"/>
+</imageobject>
+<textobject><phrase>Prediction Model</phrase></textobject>
+</mediaobject>
+</informalfigure>
 </listitem>
 </orderedlist>
 <simpara>Complete Reference to the Retraining Model can be found at: <link xl:href="https://github.com/abhi-bhatra/ct_image_scanning/blob/UI_base/ML_MODEL/kflow_model.py">https://github.com/abhi-bhatra/ct_image_scanning/blob/UI_base/ML_MODEL/kflow_model.py</link></simpara>
@@ -532,15 +686,8 @@ spec:
 </section>
 <section xml:id="id-demonstration">
 <title>Demonstration</title>
-<simpara>Below is a demonstration of the Cancer Prediction System. The demonstration is divided into two parts:</simpara>
-<orderedlist numeration="arabic">
-<listitem>
-<simpara>Demonstration of the Cancer Prediction System as a whole.</simpara>
-</listitem>
-<listitem>
-<simpara>Demonstration of the individual components of the Cancer Prediction System.</simpara>
-</listitem>
-</orderedlist>
+<simpara>Below is a demonstration of the Cancer Prediction System.</simpara>
+
 </section>
 <section xml:id="id-summary">
 <title>Summary</title>

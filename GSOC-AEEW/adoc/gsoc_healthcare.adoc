@@ -1,8 +1,6 @@
 :docinfo:
 include::./common_docinfo_vars.adoc[]
 
-:imagesdir: ./media
-
 // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 // General comments
 // Keep in mind that this is a "getting started" guide and the

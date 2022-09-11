@@ -511,23 +511,29 @@ image::model_kflow.png[ML Model Architecture, align="center"]
 
 Classification models are a subset of supervised machine learning. A classification model reads some input and generates an output that classifies the input into some category. In our case, model is taking CT-Scan and X-Ray images as input, and images are labelled. The model is a Supervised Learning technique that is used to identify the category of new observations on the basis of training data. 
 
-Steps for Classification model are as follows:
-
-. **Preprocessing**: In this step, we are converting the images into grayscale and resizing them to 128x128 pixels. We are also converting the labels into one-hot encoding.
-
-. **Splitting the dataset**: We are splitting the dataset into training, validation and testing sets. We are using 80% of the dataset for training, 10% for validation and 10% for testing.
-
-. **Building the model**: We are using Convolutional Neural Network (CNN) for building the model. We are using 3 convolutional layers and 2 dense layers. We are using Adam optimizer and categorical crossentropy loss function.
-
-. **Training the model**: We are training the model for 10 epochs. We are using 32 as the batch size.
-
 Complete Reference to the Classification Model can be found at: https://github.com/abhi-bhatra/ct_image_scanning/blob/UI_base/ML_MODEL/neural_net.ipynb
 
 === Cancer Prediction Model
 
-In this model, we use machine learning in cancer diagnosis and detection. We are using Artificial neural networks (ANNs) for detecting and classifying tumors CRT images. We are using Convolutional Neural Network (CNN) for building the model. We are using 3 convolutional layers and 2 dense layers. We are using RMSprop optimizer and binary crossentropy loss function.
+In this model, we use machine learning in cancer diagnosis and detection. We are using Artificial neural networks (ANNs) for detecting and classifying tumors CRT images. We are using https://github.com/abhi-bhatra/ct_image_scanning/blob/UI_base/ML_MODEL/cancer_detection.ipynb[Convolutional Neural Network (CNN) for building the model]. We are using 3 convolutional layers and 2 dense layers. We are using RMSprop optimizer and binary crossentropy loss function.
 
-Complete Reference to the Cancer Prediction Model can be found at: https://github.com/abhi-bhatra/ct_image_scanning/blob/UI_base/ML_MODEL/cancer_detection.ipynb
+Steps for Prediction model are as follows:
+
+. **Preprocessing**: In this step, we are converting the images into grayscale and resizing them to 128x128 pixels. We are also converting the labels into one-hot encoding.
++
+image::dataset_overview.png[Dataset Overview]
+
+. **Splitting the dataset**: We are splitting the dataset into training, validation and testing sets. We are using 80% of the dataset for training, 10% for validation and 10% for testing.
++
+image::train_test_split.png[Dataset Split]
+
+. **Building the model**: We are using Convolutional Neural Network (CNN) for building the model. We are using 3 convolutional layers and 2 dense layers. We are using Adam optimizer and categorical crossentropy loss function.
++
+image::trained_grid.png[Model Architecture]
+
+. **Training the model**: We are training the model for 200 epochs. We are using 32 as the batch size.
++
+image::predict_cancer.png[Prediction]
 
 === Retraining Model
 
@@ -678,7 +684,7 @@ spec:
 
 Below is a demonstration of the Cancer Prediction System.
 
-video::JGEDEXf-qm8[youtube]
+video::walkthrough.mp4[]
 
 == Summary
 

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<?asciidoc-toc?><?asciidoc-numbered?><article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"><title>Analytics Edge Ecosystem Workloads - Google Summer of Code</title>
+<info>
+
+<date>2022-09-11</date>
+</info>
+<section xml:id="id-introduction">
+<title>Introduction</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gsoc_intro_banner.png" width=""/>
+</imageobject>
+<textobject><phrase>Google Summer of Code 2022</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<para>This static webpage to submit the Google Summer of Code work for final evaluation. It is intended to point out to the Application documentation and walkthroughs for the Analytics Edge Ecosystem Workloads - Healthcare project. The project is a part of the Google Summer of Code 2022 program.</para>
+</section>
+<section xml:id="id-project-description">
+<title>Project Description</title>
+<para>This Document will point out to the detailed approach undertaken to accomplish this project. The project is developed under mentorship of Bryan Gartner, Ann Davis, Brian Fromme and the SUSE organization.</para>
+<para>This guide introduces the basic concepts and steps to install, configure, and use the Cancer Prediction System in a SUSE Rancher Kubernetes environment. It uses Convolutional Neural Nets (CNNs) to automatically recognize the complex patterns in imaging data, providing quantitative as well as qualitative assessments of data within a short period of time.</para>
+</section>
+<section xml:id="id-project-architecture">
+<title>Project Architecture</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="architecture.png" width=""/>
+</imageobject>
+<textobject><phrase>Architecture</phrase></textobject>
+</mediaobject>
+</informalfigure>
+</section>
+<section xml:id="id-project-walkthrough">
+<title>Project Walkthrough</title>
+<para>Visit this link to view the project walkthrough published on <link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://youtu.be/Hy00J1eoQ1c">Youtube</link>.</para>
+
+</section>
+<section xml:id="id-project-repository">
+<title>Project Repository</title>
+<para>Project source code is available on the official GitHub repository <link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://github.com/abhi-bhatra/ct_image_scanning">OpenSUSE Rancher (Google Summer of Code 2022)- Healthcare</link>.</para>
+</section>
+<section xml:id="id-project-documentation">
+<title>Project Documentation</title>
+<para>Documentation is published on official SUSE technical reference documentation website. You can also read the How-To start Guide available on the project repository. Visit this link to view the documentation published on <link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://github.com/abhi-bhatra/ct_image_scanning/blob/master/README.md#run-the-application">GitHub at Getting Started with Cancer Prediction System on your cluster</link>.</para>
+<note>
+<para>At the time of creation of the documentation, official documentation is under review by SUSE Team for grammatical and syntactical errors. Soon, it will be available on the official website. Hence, you can see the draft document of the project work here.</para>
+</note>
+</section>
+<section xml:id="id-other-documentation-links">
+<title>Other Documentation Links</title>
+<itemizedlist>
+<listitem>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://www.linkedin.com/pulse/unite-clusters-rancher-part-1-gso-abhinav-sharma-he-him-/">Unite Clusters with Rancher</link></para>
+</listitem>
+<listitem>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://medium.com/@abhinavsharma332/deploy-single-node-cluster-using-k3s-or-rke-6fc9e6a38b66">Deploy Single Node Cluster using K3s or RKE</link></para>
+</listitem>
+<listitem>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://medium.com/@abhinavsharma332/deploying-wordpress-over-rancher-cb9539b1d7da">Getting Started with Sample workload over Rancher</link></para>
+</listitem>
+<listitem>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://medium.com/@abhinavsharma332/empowering-machine-learning-applications-on-rancher-f4e368a9009">Empowering Machine Learning Application on Rancher</link></para>
+</listitem>
+<listitem>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://medium.com/@abhinavsharma332/orchestrate-machine-learning-model-with-kubeflow-11945e7801b5">Orchestrate Machine Learning Model with Kubeflow</link></para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="id-project-license">
+<title>Project License</title>
+<para>Project is licensed under the Apache License, Version 2.0. A copy of the license is available on the <link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://github.com/abhi-bhatra/ct_image_scanning/blob/master/LICENSE.md">official GitHub repository</link>.</para>
+</section>
+<section xml:id="id-project-contact">
+<title>Project Contact</title>
+<para>For any queries, please contact the author at the Discussions section of the official GitHub repository.</para>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://github.com/abhi-bhatra/ct_image_scanning/discussions">https://github.com/abhi-bhatra/ct_image_scanning/discussions</link></para>
+</section>
+<section xml:id="id-project-acknowledgements">
+<title>Project Acknowledgements</title>
+<para>This project is a part of the Google Summer of Code 2022 program. The project is developed under mentorship of <link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://github.com/bwgartner">Bryan Gartner</link>, Ann Davis, Brian Fromme and the SUSE organization.</para>
+</section>
+<section xml:id="id-project-references">
+<title>Project References</title>
+<itemizedlist>
+<listitem>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://www.suse.com/products/rancher/">SUSE Rancher</link></para>
+</listitem>
+<listitem>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://documentation.suse.com/trd/kubernetes/">SUSE Technical Reference Documentation: Kubernetes</link></para>
+</listitem>
+<listitem>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://www.suse.com/c/preparing-for-the-next-wave-of-transformation/">Preparing for the next wave of transformation</link></para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="id-project-disclaimer">
+<title>Project Disclaimer</title>
+<para>This project is a part of the Google Summer of Code 2022 program. The project is developed under mentorship of Bryan Gartner, Ann Davis, Brian Fromme and the SUSE organization. The project is not an official SUSE product and is not supported by SUSE. The project is licensed under the Apache License, Version 2.0. A copy of the license is available on the official GitHub repository. For any queries, please contact the author at the Discussions section of the official GitHub repository.</para>
+</section>
+<section xml:id="id-project-author">
+<title>Project Author</title>
+<itemizedlist>
+<listitem>
+<para>Name: Abhinav Sharma</para>
+</listitem>
+<listitem>
+<para>Location: India</para>
+</listitem>
+<listitem>
+<para>LinkedIn: <link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://www.linkedin.com/in/abhinavsharma0/">https://www.linkedin.com/in/abhinavsharma0/</link></para>
+</listitem>
+<listitem>
+<para>GitHub: <link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://github.com/abhi-bhatra">https://github.com/abhi-bhatra</link></para>
+</listitem>
+<listitem>
+<para>Twitter: <link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://twitter.com/the_bhatra">https://twitter.com/the_bhatra</link></para>
+</listitem>
+<listitem>
+<para>Title: Google Summer of Code Contributor, SUSE Rancher</para>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="id-future-reference">
+<title>Future Reference</title>
+<para><link xmlns:xl="http://www.w3.org/1999/xlink" xl:href="https://github.com/abhi-bhatra/ct_image_scanning/issues">https://github.com/abhi-bhatra/ct_image_scanning/issues</link></para>
+</section>
+</article>

@@ -62,8 +62,6 @@ include::./common_docinfo_vars.adoc[]
 
 
 // logo lock-up
-image::logo-lockup_suse-minio_hor_dark.svg[SUSE | MinIO logo lockup, scaledwidth="65%", align="center"]
-
 Cancer is world's second-leading cause of death in the world. It results in development of adnormal cells that divide uncontrollably and have the ability to infiltrate and destroy normal body tissue. Eventually, survival rates are improving and all thanks to cancer screening, treatment and prevention. 
 
 Machine Learning is one of the aspect which can be integrated with the modern science and can create wonders. Under the Google Summer of Code, we at SUSE organization have created a Machine larning based Cancer Predicition Model for early screening.
@@ -114,7 +112,6 @@ The Cancer Prediction System uses CT Scanned Images in the form of https://www.d
 - Rancher Dashboard
 - ML Pipeline Dashboard
 
-image::gs_rancher_minio_architecture.png[General Architecture, scaledwidth="85%", align="center"]
 
 
 === Components and tools
@@ -162,9 +159,6 @@ In general, the process is as follows:
 
 This guide assumes that you have access to an existing Kubernetes cluster managed by https://rancher.com/docs/rancher/v2.6/en/overview/[SUSE Rancher].
 A good place to start getting more details is the https://medium.com/@abhinavsharma332/deploy-single-node-cluster-using-k3s-or-rke-6fc9e6a38b66[Deploying cluster Using Rancher Kubernetes Engine or K3S] blog.
-
-
-image::rancher_minio_architecture_distributed_001.png[Distributed architecture, scaledwidth="75%", align="center"]
  
 
 [TIP]
@@ -568,8 +562,6 @@ Connect using: http://localhost:8080
 ----
 
 . To access the application in your Web browser, open the Rancher portal at `https://localhost`:
-+
-image::rancher_minio_ui-tenant-001.png[scaledwidth="85%", align="center"]
 
 [NOTE]
 ====

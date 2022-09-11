@@ -1,7 +1,4 @@
-:title: Analytics Edge Ecosystem Workloads - Google Summer of Code
-:productname: Analytics Edge Ecosystem Workloads - Healthcare
-:partnerproductname: Google Summer of Code
-:author1: Abhinav Sharma, GSoC Contributor, SUSE Rancher
+= Analytics Edge Ecosystem Workloads - Google Summer of Code
 
 == Introduction
 

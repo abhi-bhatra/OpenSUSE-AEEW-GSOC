@@ -8,6 +8,14 @@
 <title>Introduction</title>
 <section xml:id="id-motivation">
 <title>Motivation</title>
+<informalfigure>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gsoc_intro_banner.png" align="center" width=""/>
+</imageobject>
+<textobject><phrase>Analytics Edge Ecosystem Workloads - Google Summer of Code</phrase></textobject>
+</mediaobject>
+</informalfigure>
 <para>Cancer is world’s second-leading cause of death in the world. It results in development of adnormal cells that divide uncontrollably and have the ability to infiltrate and destroy normal body tissue. Eventually, survival rates are improving and all thanks to cancer screening, treatment and prevention.</para>
 <para>Machine Learning is one of the aspect which can be integrated with the modern science and can create wonders. Under the Google Summer of Code, we at SUSE organization have created a Machine larning based Cancer Predicition Model for early screening.</para>
 <para>This Document will demonstrate the detailed approach undertaken to accomplish this project. The project is developed under mentorship of Bryan Gartner, Ann Davis, Brian Fromme and the SUSE organization.</para>

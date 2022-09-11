@@ -38,7 +38,7 @@ include::./common_docinfo_vars.adoc[]
 :title: Analytics Edge Ecosystem Workloads - Google Summer of Code
 :productname: Analytics Edge Ecosystem Workloads - Healthcare
 :partnerproductname: Google Summer of Code
-:author1: Abhinav, Sharma, Contributor, SUSE Rancher
+:author1: Abhinav Sharma, GSoC Contributor, SUSE Rancher
 //:revdate: Month dd, YYYY
 //:revnumber: YYYYmmdd
 //:toc2:
@@ -64,6 +64,9 @@ include::./common_docinfo_vars.adoc[]
 
 
 // logo lock-up
+
+image::gsoc_intro_banner.png[Analytics Edge Ecosystem Workloads - Google Summer of Code, align="center"]
+
 Cancer is world's second-leading cause of death in the world. It results in development of adnormal cells that divide uncontrollably and have the ability to infiltrate and destroy normal body tissue. Eventually, survival rates are improving and all thanks to cancer screening, treatment and prevention. 
 
 Machine Learning is one of the aspect which can be integrated with the modern science and can create wonders. Under the Google Summer of Code, we at SUSE organization have created a Machine larning based Cancer Predicition Model for early screening.

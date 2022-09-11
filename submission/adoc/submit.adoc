@@ -1,5 +1,9 @@
 = Analytics Edge Ecosystem Workloads - Google Summer of Code
 
+
+== Read Original Draft here
+https://drive.google.com/file/d/1MWzRoN5o8Y85iubXKw_dIvn4-AkX9-Mw/view?usp=sharing
+
 == Introduction
 
 image::gsoc_intro_banner.png[Google Summer of Code 2022]

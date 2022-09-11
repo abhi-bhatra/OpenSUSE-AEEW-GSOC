@@ -40,14 +40,14 @@
 //:toc-title: {title}
 //:toclevels: 4
 
-= {title}
+== {title}
 
 **https://summerofcode.withgoogle.com/programs/2022/projects/MNFtN4so** 
 
 :description: Provide an opensource-based example deployment of a trained/tested/functional workload available for healthcare based vertical
 
 
-== Project Information
+=== Project Information
 
 |===
 ||  
@@ -59,26 +59,26 @@
 |===
 
 
-== Introduction
+=== Introduction
 
-=== Motivation
+==== Motivation
 Cancer is world's second-leading cause of death in the world. It results in development of adnormal cells that divide uncontrollably and have the ability to infiltrate and destroy normal body tissue. Eventually, survival rates are improving and all thanks to cancer screening, treatment and prevention. 
 
 Machine Learning is one of the aspect which can be integrated with the modern science and can create wonders. Under the Google Summer of Code, we at SUSE organization have created a Machine larning based Cancer Predicition Model for early screening.
 
 This Document will demonstrate the detailed approach undertaken to accomplish this project. The project is developed under mentorship of Bryan Gartner, Ann Davis, Brian Fromme and the SUSE organization.
 
-=== Challenges
+==== Challenges
 - **Biased Training Data**: Bias is a common challenge to AI models. You can read more on https://itrexgroup.com/blog/ai-bias-definition-types-examples-debiasing-strategies/[biasness in AI model here]. But the good news is we have checked on training datasets on preexisting biases. We have applied various computational methods that can detect and migrate bias in the data. 
 - **Difficulties associated with Data gathering and managing data**: Healthcare data is stored in heterogeneous and unstructured ways, and it is very challenging to generalize. But the best part is that we have mounted drive to the application and data is arranged in the drive periodically and systematically using Kubernetes Jobs and the CRON scripts.
 - **Ethical concerns and considerations**: Even the researchers, scholars and pathologists sometimes can't explain how the model delivers the outcome. As a solution, we have developed https://itrexgroup.com/blog/explainable-ai-principles-classification-examples/[explainable AI] where model can reveal reason behind their decision making. 
 
-=== Benefits
+==== Benefits
 - **Reducing false positives and negatives**: Using AI in cancer detection will improve the accuracy of diagnosis, reducing false positives and negatives. Google's research says that AI-powered software cut https://www.cbsnews.com/news/breast-cancer-doctors-hope-mammography-tests-will-be-improved-with-new-artificial-intelligence-program/[false positives down by 6% and false negatives by 9%].
 - **Helping Radiologists**: Research had given us proof that during an evaluation, models helped radiologists reduce https://www.nature.com/articles/s41467-021-26023-2[false-positives rates by 37.3%].
 - **Eliminating Human errors**: A study has shown that AI models can perform with the accurate results and how AI algorithms can detect precancerous lesions in images and can distinguish them from other abnormalities https://academic.oup.com/jnci/article/111/9/923/5272614[Read about study here.]
 
-== Scope
+=== Scope
 
 Artificial Intelligence (AI) or machine learning seems to be bridging the gap between the acquisition of data and their meaningful interpretation into oncology. This application will try to avoid complexities and simplified the Machine Learning system for clinicians and researchers to understand how Machine Learning and its various method like Convolutional Neural Networks (CNNs) are utilized in the field of oncology. 
 
@@ -86,24 +86,24 @@ Our application particularly deep learning methods, CNNs and variational auto-en
 
 Using AI in imaging can tell the radiologist about the suspicious scans that need to be looked at first among the huge number of other normal imaging findings. This has a tremendous potential in reducing time, aiding early diagnosis from the time of the mammogram, reducing the need for unnecessary biopsies and the concern of a misdiagnosis. Similar techniques to those described above are being deployed for the evaluation of eye imaging, skin lesions, electrocardiograms, X-rays and cross-sectional imaging such as CT or MRI. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7592433/[Read more about Scope of Machine Learning in Oncology]. 
 
-== Audience
+=== Audience
 
 The target audience for [.underline]#Machine Learning based Cancer Prediciton System# is the group of people who have been determined to be at risk for the disease. This software needs to be installed on Edge devices at the Hospital premises, where a lab technician, radiologist and an oncologist can closely work with the application. 
 
-== Technical overview
-=== Overview
+=== Technical overview
+==== Overview
 Machine Learning is a branch of Artificial Intelligence that implements varieties of optimization and statistical techniques that allows computer to **learn** from past examples and to detect patterns from a large, nosiy or complex data. 
 
 As a part of GSoC, We have built a Machine Learning Based **Cancer Predicition System**. The fundamental goal of the system is the prediciton of Cancer Suspectibility (also known as risk assessment), in this case, we are trying to predict the likelihood of developing a cancer prior to occurence of the disease. 
 
-This Model uses CT Scanned Images in the form of DICOM (Digital Imaging and Communications in Medicine). Whole application is deployed on Microservice based architecture and is divided into four interfaces: **[.underline]#Lab Technician Dashboard#** , **[.underline]#Doctor Dashboard#**, **[.underline]#Rancher Dashboard#** and **[.underline]#ML Pipeline Dashboard#**. They are as follows:
+This Model uses CT Scanned Images in the form of DICOM (https://www.dicomstandard.org/[Digital Imaging and Communications in Medicine]). Whole application is deployed on Microservice based architecture and is divided into four interfaces: **[.underline]#Lab Technician Dashboard#** , **[.underline]#Doctor Dashboard#**, **[.underline]#Rancher Dashboard#** and **[.underline]#ML Pipeline Dashboard#**. They are as follows:
 
 - Lab Technician's Application is responsible for getting DICOM image as input. The person could alter the information such as Contrast, Brightness and Angle of rotation of the DICOM image. They can also read all the information associated with the DICOM image (Modality: CT Scan).
 - Doctor Dashboard is more simpler dashboard designed for the doctors to examine the report send by the Lab Technician. Application will also send it's prediction over the chosen image. If doctor will not be satisfied with the response, they can send the image for the retraining with the correct label attached to it.
 - Rancher Dashboard provides UI for managing application cluster.
 - Kubeflow pipeline UI provides a visualization dashboard for visualizing the pipelines and the workflow logic for retraining of Machine Learning models.
 
-=== Components
+==== Components
 - **Python**: Python is a high-level programming language. It emphasize on code readability with the use of significant identation. Python is being dynamically-typed and automatic garbage-collector so it is the basic language we will be using to communicate. We have created Machine Learning models on top of Keras, written in Python and Flask application which serves as API and backend is also written in Python. https://www.python.org/about/gettingstarted/[Learn more about Python].
 - **Keras**: Keras is an open-source software library that provides a Python interface for designing artificial neural networks. It acts as an interface for TensorFlow library. We are using keras to design ML backend, especially https://www.tensorflow.org/tutorials/images/cnn[convolutional neural network].
 - **Flask**: Flask is a micro web framework also written in Python. It is lightweight framework used to create web applications easily. Flask is used to serve as Backend and serve Machine Learning model over API. https://flask.palletsprojects.com/en/2.2.x/tutorial/factory/[Learn more about Flask here]. 
@@ -115,40 +115,42 @@ This Model uses CT Scanned Images in the form of DICOM (Digital Imaging and Comm
 
 Every component just fits in together. Application interaction language is Python. Tensorflow and Flask both are used on top of Python. Convolutional Neural Network is used to design the Cancer prediction model, which fits in to predict the Cancer. Kubeflow is integrated as a retraining logic which allows to orchestrate workflows running on our Kubernetes cluster.
 
-=== Component Architecture
-==== Architecture Diagram
+==== Component Architecture
+**Architecture Diagram**
 
-==== Workflow
+**Workflow**
+
 DICOM Image is transferred from CT Scan Machine to the Lab Technician Application serving on local network on `port1`. Lab Technician's Application is responsible for getting DICOM image as input. The person could alter the information such as Contrast, Brightness and Angle of rotation of the DICOM image. They can also read all the information associated with the DICOM image (Modality: CT Scan). This application is also responsible for predicting the Body part examined by the Machine Learning Model integrated within this microservice. 
 
 After the satisfied resutls, lab technician can click on `Send report` button, this will trigger a script which transfer the data to Doctor dashboard via. Persistent Volume mounted as volume at both the applications. 
 
-Doctor Dashboard is designed for the doctors to examine the report send by the Lab Technician. It receives the report of a patient and displays it to the user, predicting whether or not person is suffering from cacner. If doctor will not be satisfied with the response, they can send the image for the retraining with the correct label attached to it.
+ 
+=== Prerequisites
 
-For retraining, a script will be triggered at the backend, which runs a Kuberenetes Job to train the image again and create a newly trained Model using Kubeflow Pipelines in the backend. We can visualize the pipelines using Kubeflow UI which can be accessed through Rancher portal.
-
-== Prerequisites
 This project leverages the Edge to Core to Cloud Computing native solutions. We are building an Analytical Edge Ecosystem Workload so it is recommended to have a basic knowledge of Python, Kubernetes, Rancher and Linux. 
 
 1. You can learn the https://rancher.com/learn-the-basics[basics of Kubernetes].
 2. Go for a SUSE guide to https://more.suse.com/global-ebook-edge-computing-cloud-native-world.html[Computing in Cloud Native World]
 3. Having a basic knowledge of Rancher will also help in understanding the cluster and edge computing. Follow this https://links.imagerelay.com/cdn/3404/ql/651586f0b1df4b22b39c24a5843ed909/SUSE_rancher_learning_path.pdf[SUSE Rancher Learning Path].
 
-== Installation
+=== Installation
 
-=== Installing KVM Host
+==== Installing KVM Host
 
-==== Pre-Installment Requirements 
+**Pre-Installment Requirements** 
+
 Install `virt-install`. `virt-install` is a command line tool that helps you create new virtual machines using libvert library. It might be a complex command with lots of switches but it is very useful when we need to automate the process of creating virtul machines. There are mutliple ways to install https://libvirt.org/docs.html[**libvirt**] and https://www.qemu.org/[**qemu**]
 
 Installation guides for https://libvirt.org/downloads.html[libvirt can be found here] and https://www.qemu.org/download/[QEMU can be installed from here].
 
-==== Download ISO file
+**Download ISO file**
+
 You can get ISO file for any OS you prefer to work with over internet. I will be using https://www.suse.com/download/sles/[SUSE Linux Enterprise Server SLE-15]  
 
 `cp SLE-15-SP3-Full-x86_64-GM-Media1.iso /var/lib/libvirt/images/`
 
-==== Run virt-install
+**Run virt-install**
+
 Script should resemble to something like this:
 
 ----
@@ -187,7 +189,8 @@ The command options are as follows:
 
 **graphics="--graphics none"** -- The graphics command-line option specifies that no graphical VNC or SPICE interface should be created. Use this for a kickstart installation or if you want to use a ttyS0 serial connection.
 
-==== Edit the Network configuration
+**Edit the Network configuration**
+
 Login to the newly created KVM, and we will install minimal requirements in our new KVM. I have used OpenSUSE Linux 15:
 
 ----
@@ -237,11 +240,11 @@ Validate the network settings
 `systemctl status firewalld`
 
 
-=== Install Kubernetes Cluster
+==== Install Kubernetes Cluster
 
 Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management. We will see how to deploy various distributions of Kubernetes on the KVM. You can run any of the cluster you are comfortable to work with. 
 
-==== Pre-Installment Requirements
+**Pre-Installment Requirements**
 
 It is recommended to install **kubectl** in advance so as to interact with the cluster. Kubectl or Kubernetes command-line tool allows you to run commands against Kubernetes clusters. You can Install kubectl on variety of Linux platforms, macOS and Windows. Find the documentation for your preffered OS below:
 
@@ -255,7 +258,7 @@ I am using SUSE Linux, so I can install Docker using: `zypper in -y docker`
 
 You can find documentation to https://www.docker.com/get-started/[install Docker on other Operating systems here]. 
 
-==== Installing K3S
+**Installing K3S**
 
 We will be watching on How to install k3s cluster. Although it will be very easy to create a K3S cluster. As k3s is a highly available, certified Kubernetes distribution designed for production workloads with <50MB binary that reduces the dependencies and steps needed to install, run and auto-update. 
 
@@ -276,7 +279,8 @@ chmod 644 ~/.kube/config
 kubectl get nodes
 ```
 
-==== Installing RKE
+**Installing RKE**
+
 RKE is a fast, versatile Kubernetes installer that you can use to install Kubernetes on your Linux hosts. You can get started in a couple of quick and easy steps:
 
 - Download the binary file https://github.com/rancher/rke/#latest-release[from here].
@@ -288,13 +292,14 @@ Now there are two ways to write cluster configuration file, also called `cluster
 
 Detailed documentation on https://rancher.com/docs/rke/latest/en/installation/RKE[cluster installation will be found here].
 
-=== Installing Rancher
+==== Installing Rancher
 With Rancher, you can unify the clusters to ensure consistent operations, workload management, and enterprise-grade security. Now, move from Core to Cloud to Edge with Rancher.
 
 There are two ways to install the Rancher. 
 
-==== Method 1
-**The most easy way is to Install Rancher as a Docker container and import the existing cluster on the Rancher portal.**
+**Method 1**
+
+The most easy way is to Install Rancher as a Docker container and import the existing cluster on the Rancher portal.
 
 a. Install Rancher as a Docker Image and run it: `sudo docker run --privileged -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher`
 b. Now you will be able to access the Rancher dashboard by accesing the URL **`https://localhost`** or if you are using VM, then access it on your VM's IP: **`https://VM:IP`**
@@ -308,8 +313,9 @@ i. After running those command return to Homepage and you can see the clusters a
 
 You can read the detailed overview on https://medium.com/@abhinavsharma332/deploying-wordpress-over-rancher-cb9539b1d7da[How to Install and Deploy Workload on the cluster imported in Rancher].
 
-==== Method 2
-**Second method is to install Rancher using the Manifests directly into your cluster. **
+**Method 2**
+
+Second method is to install Rancher using the Manifests directly into your cluster.
 
 a. Add the Rancher Helm chart: `helm repo add rancher-CHART_REPO https://releases.rancher.com/server-charts/CHART_REPO` (https://docs.ranchermanager.rancher.io/v2.5/reference-guides/installation-references/helm-chart-options#helm-chart-repositories[Find the Stable version here])
 b. Create a namespace: `kubectl create namespace cattle-system`
@@ -348,7 +354,7 @@ a. Wait for Rancher to be rolled out: `kubectl -n cattle-system rollout status d
 To know more installation of Rancher, visit the https://docs.ranchermanager.rancher.io/pages-for-subheaders/install-upgrade-on-a-kubernetes-cluster[official Rancher Installation Guide]. 
 
 
-=== Installing Longhorn
+==== Installing Longhorn
 Longhorn is an official CNCF project, when combined with Rancher, Longhorn makes the deployment of highly available persistent block storage in your Kubernetes environment easy, fast and reliable. 
 
 There are 3 ways to installing Longhorn to Clusters:
@@ -362,7 +368,7 @@ c. https://longhorn.io/docs/1.3.1/deploy/install/install-with-helm/[Using the He
 - Install the helm chart: `helm install longhorn/longhorn -name longhorn -namespace longhorn-system`
 - Access the UI by going to change: **LoadBalancer** to **ClusterIP**
 
-=== Installing Kubeflow
+==== Installing Kubeflow
 The Kubeflow project is designed for making deployments of machine learning (ML) workflows on Kubernetes. It provides a straightforward way to deploy best-of-breed open-source systems for ML to diverse infrastructures. Anywhere you are running Kubernetes, you should be able to run Kubeflow.
 
 We can install various components of Kubeflow such as:
@@ -373,7 +379,7 @@ We can install various components of Kubeflow such as:
 
 https://www.kubeflow.org/docs/components/[Learn more about the Kubeflow components and there installation].
 
-==== Deploying Kubeflow Pipelines
+**Deploying Kubeflow Pipelines**
 
 We will look at how to deploy Kubeflow Pipelines standalone on our local clusters.
 
@@ -410,9 +416,10 @@ Now you can access the Kubeflow Pipeline UI using port-forwarding: `kubectl port
 
 We can access the portal using `http://localhost:8080` or we can also access on our cluster IP using `http://VM_IP:8080`
 
-=== Application Setup
+==== Application Setup
 
-==== Flask Interface 
+**Flask Interface**
+
 Complete Cancer Prediction System is built on top of Flask. It has two separate applications for the doctor and the radiologist. Directory Structure of the application is as follows:
 
 ----
@@ -477,7 +484,8 @@ To work with the above application locally:
 * **prediction-model.h5**: This is the trained Machine Learning model output file, imported in `app.py` and predict whether the patient is suffering from cancer or not with the probabilty of prediction.
 
 
-==== Dataset
+**Dataset**
+
 The dataset is designed to allow for different methods to be tested for examining the trends in CT image data associated with using contrast and patient age. The basic idea is to identify image textures, statistical patterns and features correlating strongly with these traits and possibly build simple tools for automatically classifying these images when they have been misclassified (or finding outliers which could be suspicious cases, bad measurements, or poorly calibrated machines). 
 
 Dataset is being imported from **https://www.kaggle.com/datasets/kmader/siim-medical-images["Kaggle CT Medical Images ~ CT images from cancer imaging archive with contrast and patient age"]** 
@@ -518,7 +526,8 @@ Dataset is managed within the application, with the following Directory Structur
 2. **dataset-classification**: This is a separate dataset which separates all the DICOM Images as Chest and Non Chest. Currentyl, our model support Cancer classification on Chest DICOM Images. So, we need to filter our the Non Chest DICOM Images.
 3. **dataset-prediciton**: This is the final dataset used in Machine Learning model. All the ras images are processed into Train, Test and Validation sets. The labels are attached to the DICOM, so images can be classified as Cancer and Non-Cancer Images.
 
-==== Data Cleaning and Visualization
+**Data Cleaning and Visualization**
+
 It is equally important to have the right data that fits in with your model to get better, more accurate and more optimized results. We have a raw data downloaded from Public Datasets, now in order to process this data we have created some Python Scripts and Notebooks.
 
 **Data Visualization**
@@ -620,6 +629,7 @@ dicom_file_dataset
 ----
 
 **Data Cleaning**
+
 Data cleaning is the process of fixing or removing incorrect, corrupted, incorrectly formatted, duplicate, or incomplete data within a dataset. When combining multiple data sources, there are many opportunities for data to be duplicated or mislabeled.
 
 Let us now do some manipulations over the data before putting it in the Machine Learning model:
@@ -708,12 +718,14 @@ dicom_to_jpeg(os.path.join("archive", "dicom_dir/"))
 
 More details on Data Cleaning and Visualization can be found on Jupyter Notebook in the official GitHub Repository.
 
-==== Machine Learning Approach
+**Machine Learning Approach**
+
 In the project, Machine Learning is one of the major component used for predicition. Further classifies Machine Learning into Deep Learning. We are using CNN. **Convolutional Neural Network (CNN)** is a deep learning method and has achieved better results in detecting and segmenting specific objects in images in the last decade than conventional models such as regression, support vector machines or artificial neural networks.
 
 In our Cancer Prediction System, we have created two Machine Learning Models: 
 
 **Body Part Classification Model**
+
 Classification models are a subset of supervised machine learning. A classification model reads some input and generates an output that classifies the input into some category. In our case, model is taking CT-Scan and X-Ray images as input, and images are labelled. The model is a Supervised Learning technique that is used to identify the category of new observations on the basis of training data. 
 
 __Import model and include path__
@@ -782,6 +794,7 @@ model.predict(validation_dataset)
 ----
 
 **Cancer Prediction Model**
+
 In this model, we use machine learning in cancer diagnosis and detection. We are using Artificial neural networks (ANNs) for detecting and classifying tumors CRT images. Let us now see the implementation of the model:
 
 __Import the necessary Libraries__
@@ -907,7 +920,7 @@ plt.imshow(test1, cmap="bone")
 
 Finally, the model is imported in the Flask applications we discussed above.
 
-==== Cluster setup
+**Cluster setup**
 We have a set of nodes that run our containerized applications. We had packages an app with its dependencies and some necessary services. To start working with this model, we will follow these steps:
 
 **Namespace Setup**
@@ -1125,9 +1138,9 @@ spec:
 
 Run the application using: `kubectl apply -k lab-tech/`
 
-== Demonstration
+=== Demonstration
 
-=== Workflow
+==== Workflow
 This application is a combination of various tools and technologies embedded together on a same platform. Here, I will demonstrate you DIY guide to the application:
 
 - Clone the official GitHub repository:
@@ -1158,10 +1171,10 @@ kubectl apply -f kubeflow-istio.yaml
 
 ```
 
-=== Application Walkthrough
+==== Application Walkthrough
 
 
-== Summary
+=== Summary
 Healthcare Space needs to be very cautious when using AI for Cancer detection. Aritficial Intelligence is indeed a powerful tool which saves patient's life and physician's time. But it can be devastating if not trained and deployed correctly. Some key checkpoints we have undertaken:
 
 - Make sure that our AI system for cancer detection does not contain any rooted bias. If that happen, we eliminates bias from Training Data and retrain
